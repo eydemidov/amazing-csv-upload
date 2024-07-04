@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.describe User, type: :model do
   describe "validations" do
-    let(:user) { build(:user, name: "Blah") }
+    subject(:user) { build(:user, name: "Blah") }
 
     context "when name is nil" do
       before { user.name = nil }
