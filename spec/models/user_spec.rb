@@ -22,5 +22,11 @@ RSpec.describe User, type: :model do
 
       it { should_not be_valid }
     end
+
+    context "password validations" do
+      it "should include StrongPasswordValidator" do
+        expect(User.validators_on(:password).map(&:class)).to include(StrongPasswordValidator)
+      end
+    end
   end
 end
