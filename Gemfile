@@ -50,6 +50,7 @@ gem "net-pop", github: "ruby/net-pop"
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ]
+  gem "rspec-rails", "~> 6.1.3"
 end
 
 group :development do
@@ -69,8 +70,4 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara", "~> 3.40.0"
   gem "selenium-webdriver", "~> 4.22.0"
-end
-
-group :development, :test do
-  gem "rspec-rails", "~> 6.1.3"
 end
