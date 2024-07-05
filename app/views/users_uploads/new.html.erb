@@ -1,0 +1,19 @@
+<% if flash[:alert] %>
+  <div style="color: red">
+    <%= flash[:alert] %>
+  </div>
+<% end %>
+
+<h1><%= t("users_uploads.upload_csv") %></h1>
+<%= form_with scope: :users_upload, url: users_upload_path, local: false, multipart: true, data: { turbo: "true" } do |form| %>
+  <div>
+    <%= form.label :file, t("users_uploads.choose_csv_file") %>
+    <%= form.file_field :file %>
+  </div>
+  <div>
+    <%= form.submit t("users_uploads.upload") %>
+  </div>
+<% end %>
+
+<div id="results-container">
+</div>
