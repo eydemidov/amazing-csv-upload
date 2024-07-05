@@ -11,13 +11,17 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.1].define(version: 2024_07_04_104930) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "citext"
+  enable_extension "plpgsql"
+
   create_table "users", force: :cascade do |t|
-    t.string "name", null: false, collation: "NOCASE"
+    t.citext "name", null: false
     t.string "password_digest", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_users_on_name", unique: true
-    t.check_constraint "length(name) > 0", name: "name_length_check"
+    t.check_constraint "length(name::text) > 0", name: "name_length_check"
   end
 
 end
