@@ -28,6 +28,16 @@
 #       enabled: "ON"
 
 en:
+  users_uploads:
+    upload: "Upload"
+    upload_failed: "Upload failed, please try again."
+    upload_results: "Upload Results"
+    user_name: "User Name"
+    results: "Results"
+    rejected: "Rejected"
+    created: "Created"
+    upload_csv: "Upload CSV"
+    choose_csv_file: "Choose CSV file"
   activerecord:
     errors:
       models:
