@@ -1,0 +1,30 @@
+<h2><%= t("users_uploads.upload_results") %></h2>
+<table id="results">
+  <tr>
+    <th><%= t("users_uploads.user_name") %></th>
+    <th><%= t("users_uploads.results") %></th>
+  </tr>
+  <% @results.each do |result| %>
+    <tr>
+      <td>
+        <%= result[:name] %>
+      </td>
+      <td>
+        <% if !result[:success] %>
+        <span style="color: red">
+          <%= t("users_uploads.rejected") %>
+        </span>
+          <br>
+          <% result[:errors].each do |error| %>
+            <span><%= error %></span>
+            <br>
+          <% end %>
+        <% else %>
+        <span style="color: green">
+          <%= t("users_uploads.created") %>
+        </span>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>
