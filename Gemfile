@@ -47,6 +47,8 @@ gem "bootsnap", "~> 1.18.3", require: false
 # Fix Ruby 3.3.3 bug that breaks deploy, see https://github.com/ruby/net-pop/issues/26
 gem "net-pop", github: "ruby/net-pop"
 
+gem "view_component", "~> 3.12.1"
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ]
