@@ -24,6 +24,15 @@ RSpec.describe User, type: :model do
     end
 
     context "password validations" do
+      context "when name is nil" do
+        before { user.password = nil }
+
+        it "adds an error" do
+          expect(user).not_to be_valid
+          expect(user.errors[:password]).to include(I18n.t("errors.messages.blank"))
+        end
+      end
+
       it "should include StrongPasswordValidator" do
         expect(User.validators_on(:password).map(&:class)).to include(StrongPasswordValidator)
       end

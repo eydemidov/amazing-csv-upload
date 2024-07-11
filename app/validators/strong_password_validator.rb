@@ -15,8 +15,10 @@ class StrongPasswordValidator < ActiveModel::EachValidator
   }.freeze
 
   def validate_each(record, attr, val)
-    validate_length(record, attr, val)
-    validate_rules(record, attr, val)
+    str_password = val.to_s
+
+    validate_length(record, attr, str_password)
+    validate_rules(record, attr, str_password)
   end
 
   private
